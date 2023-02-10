@@ -11,8 +11,12 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 // })
 
 const server = http.Server(app)
-server.listen(300,()=>{
+server.listen(5000,()=>{
     console.log('run')
 })
 
 const io = socketIO(server)
+
+io.on('connection', (socket)=>{
+    console.log("New Connection")
+})
